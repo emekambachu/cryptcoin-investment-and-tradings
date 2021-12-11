@@ -146,8 +146,10 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <a class="uk-button uk-button-text uk-margin-large-left uk-visible@m" href="#">Company News</a>
-                    <a class="uk-button uk-button-text uk-margin-large-left uk-visible@m" href="#">Partnership</a>
+                    <a class="uk-button uk-button-text uk-margin-large-left uk-visible@m"
+                       href="mailto:info@wglobalinvestment.com">{{ env('MAIL_FROM_ADDRESS') }}</a>
+                    <a class="uk-button uk-button-text uk-margin-large-left usk-visible@m"
+                       href="tel:(659)786-1103">(659)786-1103</a>
                 </div>
             </div>
 
