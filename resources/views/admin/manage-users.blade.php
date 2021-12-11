@@ -104,8 +104,7 @@
                                         <tfoot>
                                         <tr>
                                             <th scope="col">Name</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Password</th>
+                                            <th scope="col">Email/Password</th>
                                             <th scope="col">Country</th>
                                             <th scope="col">Wallet</th>
                                             <th scope="col">Date</th>
