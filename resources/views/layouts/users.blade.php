@@ -30,13 +30,13 @@
 <body class="alt-menu sidebar-noneoverflow">
 
 <!-- BEGIN LOADER -->
-<div id="load_screen">
-    <div class="loader">
-        <div class="loader-content">
-            <div class="spinner-grow align-self-center"></div>
-        </div>
-    </div>
-</div>
+{{--<div id="load_screen">--}}
+{{--    <div class="loader">--}}
+{{--        <div class="loader-content">--}}
+{{--            <div class="spinner-grow align-self-center"></div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 <!--  END LOADER -->
 
 <!--  BEGIN NAVBAR  -->
@@ -109,9 +109,9 @@
             <li class="nav-item dropdown user-profile-dropdown order-lg-0 order-1">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="user-profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media">
-                        <img src="/photos/{{!empty($user->image) ? $user->image : 'noimage.png'}}" class="img-fluid">
+                        <img src="/photos/{{!empty(Auth::user()->image) ? Auth::user()->image : 'noimage.png'}}" class="img-fluid">
                         <div class="media-body align-self-center">
-                            <h6><span>Hi,</span> {{ $user->name }}</h6>
+                            <h6><span>Hi,</span> {{ Auth::user()->name }}</h6>
                         </div>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -165,30 +165,53 @@
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('cryptolabsfx_logoonly.png') }}" class="navbar-logo" alt="logo">
+                        <img src="{{ asset('logoonly.png') }}" class="navbar-logo" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="{{ url('/') }}" class="nav-link"> CLFX </a>
+                    <a href="{{ url('/') }}" class="nav-link"> CIT </a>
                 </li>
             </ul>
 
             <ul class="list-unstyled menu-categories" id="topAccordion">
 
                 <li class="menu single-menu">
-                    <a href="{{ route('users-dashboard') }}" aria-expanded="true" class="dropdown-toggle autodroprown">
+                    <a href="{{ route('users-dashboard') }}" aria-expanded="true"
+                       class="dropdown-toggle autodroprown">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-home">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
                             <span>Dashboard</span>
                         </div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                             stroke-linejoin="round" class="feather feather-chevron-down">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
                     </a>
                 </li>
 
                 <li class="menu single-menu">
                     <a href="" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="feather feather-cpu">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="14" x2="23" y2="14"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="14" x2="4" y2="14"></line>
+                            </svg>
                             <span>Investments</span>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -214,13 +237,21 @@
                 </li>
 
                 <li class="menu single-menu">
-                    <a href="{{ url('users/account-settings') }}" aria-expanded="false" class="dropdown-toggle">
+                    <a href="" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                             <span>Account Settings</span>
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </a>
+                    <ul class="collapse submenu list-unstyled" id="app" data-parent="#topAccordion">
+                        <li>
+                            <a href="{{ url('users/account-settings') }}"> Profile settings </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('settings.wallets') }}"> Crypto Wallets </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="menu single-menu">
@@ -239,7 +270,7 @@
     <!--  END TOPBAR  -->
 
     <!--  BEGIN CONTENT PART  -->
-    <div id="content" class="main-content" style="background-color: #f6e3b8;">
+    <div id="content" class="main-content" style="background-color: #ffe1dc;">
 
         <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825,1839,2010,52" currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>
 

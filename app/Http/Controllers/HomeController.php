@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Session;
 class HomeController extends Controller
 {
     public function forgotPassword(){
-
         return view('auth.forgot-password');
     }
 
@@ -34,9 +33,9 @@ class HomeController extends Controller
 
         // Send Email user
         Mail::send('emails.users.recover-password', $data, static function ($message) use ($data) {
-            $message->from('support@cryptogrowthlabs.com', 'Cryptcoin Investment and Tradings');
+            $message->from('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->to($data['email'], $data['name']);
-            $message->replyTo('support@cryptogrowthlabs.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('Your Password');
         });
 
@@ -63,9 +62,9 @@ class HomeController extends Controller
 
         // Send Email Company
         Mail::send('emails.contact-form', $data, static function ($message) use ($data) {
-            $message->from('info@bit-farms.ltd', 'Cryptcoin Investment and Tradings');
-            $message->to('support@cryptogrowthlabs.com', 'Cryptcoin Investment and Tradings');
-            $message->replyTo('noreply@bit-farms.ltd', 'Cryptcoin Investment and Tradings');
+            $message->from('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->to('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('New Message From'. $data['name']);
         });
 

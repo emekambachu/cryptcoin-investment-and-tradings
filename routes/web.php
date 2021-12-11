@@ -59,8 +59,8 @@ Route::post('contact/send', 'HomeController@contactForm');
 Auth::routes();
 
 // Password Recovery
-Route::get('forgot-password', 'HomeController@forgotPassword');
-Route::post('recover-password', 'HomeController@recoverPassword');
+Route::get('forgot-password', 'HomeController@forgotPassword')->name('forgot-password');
+Route::post('recover-password', 'HomeController@recoverPassword')->name('recover-password');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/users', 'UserController@index')->name('users');
