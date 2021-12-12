@@ -46,6 +46,7 @@
 <!-- preloader end -->
 
 <header>
+    <div id="google_translate_element"></div>
     <!-- header content begin -->
     <div class="uk-section uk-padding-remove-vertical in-header-inner uk-background-cover uk-background-top-center"
          style="background-image: url({{ asset('main/img/in-liquid-slide-bg.png') }});">
@@ -174,6 +175,12 @@
 <script src="{{ asset('main/js/vendors/uikit.min.js') }}"></script>
 <script src="{{ asset('main/js/vendors/blockit.min.js') }}"></script>
 <script src="{{ asset('main/js/config-theme.js') }}"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 @yield('bottom-assets')
 

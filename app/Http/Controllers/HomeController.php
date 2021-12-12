@@ -17,7 +17,6 @@ class HomeController extends Controller
     public function recoverPassword(Request $request){
 
         $email = $request->input('email');
-
         $recover = User::where('email', $email)->get()->first();
 
         if(!$recover){
