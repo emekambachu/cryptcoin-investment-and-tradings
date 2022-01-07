@@ -5,6 +5,8 @@
 </div>
 @endif
 
+
+
 @if(session('warning'))
     <div style="width: 50%; margin: 10px auto;" align="center"
          class="gdlr-core-alert-box-item-inner gdlr-core-skin-e-background gdlr-core-skin-border" role="alert">

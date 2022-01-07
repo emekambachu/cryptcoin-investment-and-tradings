@@ -15,7 +15,12 @@
                             <div class="iq-header-title" style="display: inline-block;">
                                 <h4 style="float: left;" class="card-title mr-2">Manage Investments</h4>
                             </div>
-                            @include('includes.alerts')
+                            @if(session('success'))
+                                <div style="width: 50%; margin: 10px auto; color: #0b0b0b;" align="center"
+                                     class="bg-success p-2" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                         </div>
                         <div class="iq-card-body">
                             <p>Your current investments are displayed here</p>

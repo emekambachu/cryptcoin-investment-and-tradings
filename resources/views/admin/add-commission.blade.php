@@ -19,7 +19,12 @@
                             </div>
                         </div>
 
-                        @include('includes.alerts')
+                        @if(session('success'))
+                            <div style="width: 50%; margin: 10px auto; color: #0b0b0b;" align="center"
+                                 class="bg-success p-2" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
 
                         <div class="iq-card-body">
                             <form method="post" action="{{ route('admin.commission.store', $user->id) }}">
