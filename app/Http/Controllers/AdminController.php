@@ -124,12 +124,16 @@ class AdminController extends Controller
         // get users
         $user = User::find($id);
 
-        // get users wallet
-        $wallet = Wallet::find($user->wallet_id);
+        $wallet = Wallet::where('user_id', $user->id)->first();
 
-        // Update User Wallet
-        $wallet->amount += $amount;
-        $wallet->save();
+        if($wallet){
+            $wallet->amount += $amount;
+            $wallet->save();
+        }else{
+            $wallet->user_id = $user->id;
+            $wallet->amount = $amount;
+            $wallet->save();
+        }
 
         // add to transaction
         Transaction::addTransaction($user->id, 0, $wallet->amount, $description);
@@ -156,9 +160,9 @@ class AdminController extends Controller
         ];
 
         Mail::send('emails.fund-wallet', $data, static function ($message) use ($data) {
-            $message->from('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->from('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->to($data['email'], $data['name'])->cc('support@cryptogrowthlabs.com');
-            $message->replyTo('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('Credit Transfer of $' . number_format($data['amount']) . ' From Investment');
         });
 
@@ -184,12 +188,16 @@ class AdminController extends Controller
         // get users
         $user = User::find($id);
 
-        // get users wallet
-        $wallet = Wallet::find($user->wallet_id);
+        $wallet = Wallet::where('user_id', $user->id)->first();
 
-        // Update User Profit
-        $wallet->profit = $amount;
-        $wallet->save();
+        if($wallet){
+            $wallet->profit += $amount;
+            $wallet->save();
+        }else{
+            $wallet->user_id = $user->id;
+            $wallet->profit = $amount;
+            $wallet->save();
+        }
 
         $data = [
             'name' => $user->name,
@@ -201,9 +209,9 @@ class AdminController extends Controller
         ];
 
         Mail::send('emails.add-profit', $data, static function ($message) use ($data) {
-            $message->from('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->from('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->to($data['email'], $data['name'])->cc('support@cryptogrowthlabs.com');
-            $message->replyTo('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('Credit Transfer of $' . number_format($data['amount']) . ' on profit');
         });
 
@@ -232,12 +240,16 @@ class AdminController extends Controller
         // get users
         $user = User::find($id);
 
-        // get users wallet
-        $wallet = Wallet::find($user->wallet_id);
+        $wallet = Wallet::where('user_id', $user->id)->first();
 
-        // Update User Wallet
-        $wallet->commission = $amount;
-        $wallet->save();
+        if($wallet){
+            $wallet->commission += $amount;
+            $wallet->save();
+        }else{
+            $wallet->user_id = $user->id;
+            $wallet->commission = $amount;
+            $wallet->save();
+        }
 
         $data = [
             'name' => $user->name,
@@ -249,9 +261,9 @@ class AdminController extends Controller
         ];
 
         Mail::send('emails.add-commission', $data, static function ($message) use ($data) {
-            $message->from('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->from('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->to($data['email'], $data['name'])->cc('support@cryptogrowthlabs.com');
-            $message->replyTo('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('Credit Transfer of $' . number_format($data['amount']) . ' on commission');
         });
 
@@ -280,12 +292,16 @@ class AdminController extends Controller
         // get users
         $user = User::find($id);
 
-        // get users wallet
-        $wallet = Wallet::find($user->wallet_id);
+        $wallet = Wallet::where('user_id', $user->id)->first();
 
-        // Update User Wallet
-        $wallet->bonus = $amount;
-        $wallet->save();
+        if($wallet){
+            $wallet->bonus += $amount;
+            $wallet->save();
+        }else{
+            $wallet->user_id = $user->id;
+            $wallet->bonus = $amount;
+            $wallet->save();
+        }
 
         $data = [
             'name' => $user->name,
@@ -297,9 +313,9 @@ class AdminController extends Controller
         ];
 
         Mail::send('emails.add-bonus', $data, static function ($message) use ($data) {
-            $message->from('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->from('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->to($data['email'], $data['name'])->cc('support@cryptogrowthlabs.com');
-            $message->replyTo('info@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
+            $message->replyTo('support@cryptcoininvestment.com', 'Cryptcoin Investment and Tradings');
             $message->subject('Credit Transfer of $' . number_format($data['amount']) . ' on bonus');
         });
 

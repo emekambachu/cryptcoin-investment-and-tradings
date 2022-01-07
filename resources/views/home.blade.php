@@ -277,6 +277,10 @@ Home
                                         <li style="font-size: 15px;">{{ $package->referral_bonus }}% Referral Bonus</li>
                                         @endif
 
+                                        @if(!empty($package->roi))
+                                            <li style="font-size: 15px;">{{ $package->roi }}% ROI</li>
+                                        @endif
+
                                         @if(!empty($package->expert_advice))
                                         <li style="font-size: 15px;">{{ $package->expert_advice }}</li>
                                         @endif
