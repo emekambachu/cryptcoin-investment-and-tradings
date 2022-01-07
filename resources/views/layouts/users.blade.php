@@ -25,6 +25,8 @@
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
 
     @yield('top-assets')
+
+    <script src="//code-eu1.jivosite.com/widget/mskX6Zjfyh" async></script>
 </head>
 
 <body class="alt-menu sidebar-noneoverflow">

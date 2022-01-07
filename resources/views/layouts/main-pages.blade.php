@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="{{ asset('main/css/style.css') }}">
 
     @yield('top-assets')
+
+    <script src="//code-eu1.jivosite.com/widget/mskX6Zjfyh" async></script>
 </head>
 
 <body>
