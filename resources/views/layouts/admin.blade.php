@@ -11,7 +11,7 @@
 
     <title>@yield('title') - BTC Binary Traders</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('binary_traders_forum_favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('auth/css/bootstrap.min.css') }}">
     <!-- Typography CSS -->
@@ -41,7 +41,7 @@
     <div class="iq-sidebar">
         <div class="iq-navbar-logo d-flex justify-content-between">
             <a href="" class="header-logo">
-                <img src="{{ asset('btc_binary_traders_logo.png') }}" class="img-fluid rounded" alt="">
+                <img src="{{ asset('logo.png') }}" class="img-fluid rounded" alt="">
             </a>
             <div class="iq-menu-bt align-self-center">
                 <div class="wrapper-menu">
